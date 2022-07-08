@@ -6,8 +6,8 @@ Exampler Multisig to execute groundless Solana transactions.
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
+    Program-->B: given input;
+    Program-->C;
     B-->D;
     C-->D;
 ```
