@@ -18,7 +18,7 @@ graph TD;
 
 
 ### Parameters
-1. Owners: Adresses of the owners to conductthe transactions
+1. Owners: Adresses of the owners to conduct the transactions.
 2. Threshold: Number of signatures (signers) required to sign to execute the transaction.
 
 Threshold < Owners
