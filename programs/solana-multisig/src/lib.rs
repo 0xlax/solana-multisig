@@ -35,6 +35,32 @@ pub mod solana_multisig {
     // Transaction account to be signer bt createn and must one of the owner
     // of the multisig
     pub fn create_transaction(
+        ctx: Context<CreateTransaction>,
+        pid: Pubkey,
+        accs: Vec<TransactionAccount>,
+        data: Vec<u8>,
+    ) -> ProgramResult {
+        let owner_index = ctx
+            .accounts
+            .multisig
+            .owners
+            .iter()
+            .position(|a| a == ctx.accounts.proposer.key)
+            .ok_or(ErrorCode::InvalidOwner)?;
+
+        let mut signers = vec![false; ctx.accounts.multisig.owners.len()];
+        signers[owner_index] = true;
+
+        let tx = &mut ctx.accounts.transaction;
+        tx.program_id = pid;
+        tx.accounts = accs;
+        tx.data = data;
+        tx.signers = signers;
+        tx.multisig = ctx.accounts.multisig.key();
+        tx.did_execute = false;
+        tx.owner_set_seqno = ctx.accounts.multisig.owner_set_seqno;
+
+        Ok(())
 
     )
 
