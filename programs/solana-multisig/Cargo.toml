@@ -1,8 +1,10 @@
 [package]
 name = "solana-multisig"
 version = "0.1.0"
-description = "Created with Anchor"
+author = ["0xlax <harshith.lax@gmail.com>"]
+description = "Multisig program for Solana"
 edition = "2021"
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib", "lib"]
