@@ -7,7 +7,7 @@ Exampler Multisig to execute groundless Solana transactions.
 ```mermaid
 graph TD;
     Program-->Owner_parameter;
-    Program-->Threshold_paramater;
+    Program-->Threshold_parameter;
     Owner_parameter-->Multisig;
     Threshold_parameter-->Multisig;
     Multisig-->approval_await;
